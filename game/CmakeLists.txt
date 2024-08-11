@@ -1,0 +1,31 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(game)
+
+# Include directories for the engine headers
+include_directories(${CMAKE_SOURCE_DIR}/engine/include)
+
+# Find SDL2 library
+find_package(SDL2 REQUIRED)
+
+# Add source files
+set(GAME_SRC
+    src/main.cpp
+)
+
+# Create executable for the game
+add_executable(${PROJECT_NAME} ${GAME_SRC})
+
+# Link the game executable with the engine static library and SDL2
+target_link_libraries(${PROJECT_NAME} engine SDL2::SDL2)
+
+message("${SDL2_LIBDIR}")
+    set(SDL2_DLL_PATH ${SDL2_LIBDIR}/SDL2.dll)
+
+# Copy the SDL2.dll to the build directory
+if (WIN32)
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${SDL2_DLL_PATH}"   # Path to SDL2.dll
+        $<TARGET_FILE_DIR:${PROJECT_NAME}>) # Target directory (where your Game executable is built)
+endif()
