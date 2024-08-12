@@ -8,6 +8,9 @@ include_directories(${CMAKE_SOURCE_DIR}/engine/include)
 # Find SDL2 library
 find_package(SDL2 REQUIRED)
 
+# Find GLM library
+find_package(glm CONFIG REQUIRED)
+
 # Add source files
 set(GAME_SRC
     src/main.cpp
@@ -17,7 +20,7 @@ set(GAME_SRC
 add_executable(${PROJECT_NAME} ${GAME_SRC})
 
 # Link the game executable with the engine static library and SDL2
-target_link_libraries(${PROJECT_NAME} engine SDL2::SDL2)
+target_link_libraries(${PROJECT_NAME} engine SDL2::SDL2 glm::glm)
 
 message("${SDL2_LIBDIR}")
     set(SDL2_DLL_PATH ${SDL2_LIBDIR}/SDL2.dll)

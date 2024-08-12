@@ -35,6 +35,9 @@ namespace nula
     private:
         void InitSDL();
         void CreateWindow(const std::string &title, int width, int height);
+        bool HandleInput();
+        void Update();
+        void Render();
         void QuitSDL();
 
         std::unique_ptr<SDL_Window, SDLWindowDestroyer> m_window{nullptr};

@@ -4,6 +4,9 @@ project(engine)
 # Find SDL2 library
 find_package(SDL2 REQUIRED)
 
+# Find GLM library
+find_package(glm CONFIG REQUIRED)
+
 # Add source files
 set(ENGINE_SRC
     src/Engine.cpp
@@ -17,7 +20,7 @@ add_library(${PROJECT_NAME} STATIC ${ENGINE_SRC})
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # Link SDL2 to the Engine library
-target_link_libraries(${PROJECT_NAME} SDL2::SDL2main SDL2::SDL2)
+target_link_libraries(${PROJECT_NAME} SDL2::SDL2main SDL2::SDL2 glm::glm)
 
 # Specify the source directory containing header files
 set(HEADER_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
