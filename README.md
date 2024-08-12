@@ -4,7 +4,7 @@ The Nula Engine is something I'm developing to teach myself about the ECS patter
 My goal is to create an engine using the pattern that is both functional and easy/fun to use. 
 
 ## Requirements
-This project depends on SDL2 being discoverable by CMake. I've used the `find_package` command to link SDL2 to the engine. So make sure there is a local copy of SDL2 in your `CMAKE_PREFIX_PATH` environment variable.
+This project depends on SDL2 & GLM being discoverable by CMake. I've used the `find_package` command to link SDL2 to the engine. So make sure there is a local copy of SDL2 & GLM in your `CMAKE_PREFIX_PATH` environment variable.
 
 ## Building the project
 Following the usual CMake build steps should suffice.
