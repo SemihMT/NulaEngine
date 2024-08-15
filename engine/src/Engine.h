@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
-
 #include <memory>
 #include <SDL.h>
+
 
 namespace nula
 {
@@ -26,8 +26,10 @@ namespace nula
     {
     public:
         nulaEngine();
-        void Run();
         ~nulaEngine();
+
+        void Startup();
+        void Run();
 
         SDL_Window *GetSDLWindow() const { return m_window.get(); }
         SDL_Renderer *GetSDLRenderer() const { return m_renderer.get(); }

@@ -17,9 +17,9 @@ set(ENGINE_SRC
 add_library(${PROJECT_NAME} STATIC ${ENGINE_SRC})
 
 # Specify include directories for the Engine target
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-# Link SDL2 to the Engine library
+# Link SDL2 & glm to the Engine library
 target_link_libraries(${PROJECT_NAME} SDL2::SDL2main SDL2::SDL2 glm::glm)
 
 # Specify the source directory containing header files

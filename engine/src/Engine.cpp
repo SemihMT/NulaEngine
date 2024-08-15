@@ -1,5 +1,5 @@
 #include "Engine.h"
-
+#include <SDL.h>
 namespace nula
 {
     nulaEngine::nulaEngine()
@@ -7,12 +7,17 @@ namespace nula
         InitSDL();
         CreateWindow("nulaEngine", 640, 480);
     }
+    void nulaEngine::Startup()
+    {
+        
+    }
     void nulaEngine::Run()
     {
+
         bool game_is_running{true};
         while (game_is_running)
         {
-            //basic game loop, no framerate limit, heavy cpu usage
+            // basic game loop, no framerate limit, heavy cpu usage
             game_is_running = HandleInput();
             Update();
             Render();
@@ -65,7 +70,6 @@ namespace nula
     {
         // Update the systems
         // All ECS registered systems should probably get updated here
-        
     }
     void nulaEngine::Render()
     {
